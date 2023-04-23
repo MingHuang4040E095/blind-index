@@ -9,7 +9,7 @@ export default class extends BaseSchema {
       table.string('name').notNullable() // 姓名
       table.string('tel') // 電話
       table.string('address') // 地址
-      table.string('email').notNullable() // 信箱帳號
+      table.string('email').notNullable().unique() // 信箱帳號
       table.string('password').notNullable() // 密碼
 
       /**
