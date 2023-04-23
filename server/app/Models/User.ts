@@ -1,22 +1,27 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column, beforeSave } from '@ioc:Adonis/Lucid/Orm'
 import Hash from '@ioc:Adonis/Core/Hash'
+import Encryption from '@ioc:Adonis/Core/Encryption' // 加密
 
+const encryptConfig = {
+  prepare: (value: string) => Encryption.encrypt(value), // 存到資料庫前
+  consume: (value: string) => Encryption.decrypt(value), // 從資料庫取出來之後
+}
 export default class User extends BaseModel {
   // 使用者id
   @column({ isPrimary: true })
   public id: number
 
   // 姓名
-  @column()
+  @column(encryptConfig)
   public name: string
 
   // 電話
-  @column()
+  @column(encryptConfig)
   public tel: string
 
   // 地址
-  @column()
+  @column(encryptConfig)
   public address: string
 
   // 信箱帳號
