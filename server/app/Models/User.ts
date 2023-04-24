@@ -16,13 +16,25 @@ export default class User extends BaseModel {
   @column(encryptConfig)
   public name: string
 
+  // 姓名 盲索引
+  @column()
+  public nameBlindIndex: string
+
   // 電話
   @column(encryptConfig)
   public tel: string
 
+  // 電話 盲索引
+  @column()
+  public telBlindIndex: string
+
   // 地址
   @column(encryptConfig)
   public address: string
+
+  // 地址 盲索引
+  @column()
+  public addressBlindIndex: string
 
   // 信箱帳號
   @column()

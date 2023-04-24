@@ -28,4 +28,7 @@ export default Env.rules({
   MSSQL_SERVER: Env.schema.string(),
   MSSQL_PASSWORD: Env.schema.string(),
   MSSQL_DB_NAME: Env.schema.string(),
+
+  // 盲索引
+  BLIND_INDEX: Env.schema.string(),
 })
